@@ -895,6 +895,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@prisma/client@npm:2.20.1":
+  version: 2.20.1
+  resolution: "@prisma/client@npm:2.20.1"
+  dependencies:
+    "@prisma/engines-version": 2.20.0-26.60ba6551f29b17d7d6ce479e5733c70d9c00860e
+  peerDependencies:
+    prisma: "*"
+  peerDependenciesMeta:
+    prisma:
+      optional: true
+  checksum: fc5d82072a760d5b08cec3fb880137414bc89f529da73662960594b44d4cf07897da0848cbb132aa2b484856654acee74da95fecd73ecab70e59f0268a365715
+  languageName: node
+  linkType: hard
+
+"@prisma/engines-version@npm:2.20.0-26.60ba6551f29b17d7d6ce479e5733c70d9c00860e":
+  version: 2.20.0-26.60ba6551f29b17d7d6ce479e5733c70d9c00860e
+  resolution: "@prisma/engines-version@npm:2.20.0-26.60ba6551f29b17d7d6ce479e5733c70d9c00860e"
+  checksum: ae386ba7d0a99abba409619b9737bb275ace9d220f372ee128967b0e6733f92674f3a7a80432fdc8c5fb036b4dd50168f57a0268055668cb4c9c2a89454d2bad
+  languageName: node
+  linkType: hard
+
+"@prisma/engines@npm:2.20.0-26.60ba6551f29b17d7d6ce479e5733c70d9c00860e":
+  version: 2.20.0-26.60ba6551f29b17d7d6ce479e5733c70d9c00860e
+  resolution: "@prisma/engines@npm:2.20.0-26.60ba6551f29b17d7d6ce479e5733c70d9c00860e"
+  checksum: 4b6ea96c2392a4c0fa99b2f4833b9104ceca784949eba47d9c67a9ef6ce73ff2f362b7f8deddc7ff86d9b0a39306719a1785d248f39e52efaa30919fb77b271e
+  languageName: node
+  linkType: hard
+
 "@schematics/schematics@npm:0.1102.6":
   version: 0.1102.6
   resolution: "@schematics/schematics@npm:0.1102.6"
@@ -5818,6 +5846,7 @@ __metadata:
     "@nestjs/platform-express": ^7.6.15
     "@nestjs/schematics": ^7.3.0
     "@nestjs/testing": ^7.6.15
+    "@prisma/client": 2.20.1
     "@types/express": ^4.17.11
     "@types/jest": ^26.0.22
     "@types/node": ^14.14.36
@@ -5829,6 +5858,7 @@ __metadata:
     eslint-plugin-prettier: ^3.3.1
     jest: ^26.6.3
     prettier: ^2.2.1
+    prisma: 2.20.1
     reflect-metadata: ^0.1.13
     rimraf: ^3.0.2
     rxjs: ^6.6.6
@@ -6413,6 +6443,18 @@ __metadata:
     ansi-styles: ^4.0.0
     react-is: ^17.0.1
   checksum: 5ad34fc128218485732cf0271d396158a00584708fc97bf063c1c3c000fe14da572e9a1d3d7b92d95c5e24965434656c56ed0e45804dea2435ca59a1f86f1b07
+  languageName: node
+  linkType: hard
+
+"prisma@npm:2.20.1":
+  version: 2.20.1
+  resolution: "prisma@npm:2.20.1"
+  dependencies:
+    "@prisma/engines": 2.20.0-26.60ba6551f29b17d7d6ce479e5733c70d9c00860e
+  bin:
+    prisma: build/index.js
+    prisma2: build/index.js
+  checksum: a851cfe4cef0de9aade4a2e66d983b823df6e6c463d6ffbdaf949b9126157fa04a08f25e31c6e1237cbcc63876bf6ae75724d4ab6826be8039d05150e82e08c3
   languageName: node
   linkType: hard
 
