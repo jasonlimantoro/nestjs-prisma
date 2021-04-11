@@ -16,6 +16,11 @@ import { UpdatePostDto } from './dto/update-post.dto';
 export class PostsController {
   constructor(private postsService: PostsService) {}
 
+  @Get(':id')
+  get(@Param('id') id: string): Promise<PostModel> {
+    return this.postsService.find({ id: Number(id) });
+  }
+
   @Post()
   create(
     @Body()
@@ -67,6 +72,18 @@ export class PostsController {
       data: {
         title,
         content,
+      },
+    });
+  }
+
+  @Patch('publish/:id')
+  async publish(@Param('id') id: string): Promise<PostModel> {
+    return this.postsService.update({
+      where: {
+        id: Number(id),
+      },
+      data: {
+        published: true,
       },
     });
   }
