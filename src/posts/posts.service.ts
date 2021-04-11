@@ -37,7 +37,7 @@ export class PostsService {
     });
   }
 
-  async updatePost(params: {
+  async update(params: {
     where: Prisma.PostWhereUniqueInput;
     data: Prisma.PostUpdateInput;
   }): Promise<Post> {
@@ -48,7 +48,7 @@ export class PostsService {
     });
   }
 
-  async deletePost(where: Prisma.PostWhereUniqueInput): Promise<Post> {
+  async delete(where: Prisma.PostWhereUniqueInput): Promise<Post> {
     return this.prisma.post.delete({
       where,
     });

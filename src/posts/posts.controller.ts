@@ -1,7 +1,16 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+} from '@nestjs/common';
 import { PostsService } from './posts.service';
 import { Post as PostModel } from '@prisma/client';
 import { CreatePostDto } from './dto/create-post.dto';
+import { UpdatePostDto } from './dto/update-post.dto';
 
 @Controller('posts')
 export class PostsController {
@@ -46,8 +55,24 @@ export class PostsController {
     });
   }
 
+  @Patch(':id')
+  async updatePostTitleOrContent(
+    @Param('id') id: string,
+    @Body() { title, content }: UpdatePostDto,
+  ): Promise<PostModel> {
+    return this.postsService.update({
+      where: {
+        id: Number(id),
+      },
+      data: {
+        title,
+        content,
+      },
+    });
+  }
+
   @Delete(':id')
   async deletePost(@Param('id') id: string): Promise<PostModel> {
-    return this.postsService.deletePost({ id: Number(id) });
+    return this.postsService.delete({ id: Number(id) });
   }
 }
