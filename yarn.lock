@@ -5868,9 +5868,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nestjs-typegraphql-prisma@workspace:.":
+"nestjs-prisma@workspace:.":
   version: 0.0.0-use.local
-  resolution: "nestjs-typegraphql-prisma@workspace:."
+  resolution: "nestjs-prisma@workspace:."
   dependencies:
     "@nestjs/cli": ^7.6.0
     "@nestjs/common": ^7.6.15
