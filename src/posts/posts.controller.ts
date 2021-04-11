@@ -3,6 +3,7 @@ import {
   Controller,
   Delete,
   Get,
+  HttpCode,
   Param,
   Patch,
   Post,
@@ -89,6 +90,7 @@ export class PostsController {
   }
 
   @Delete(':id')
+  @HttpCode(204)
   async delete(@Param('id') id: string): Promise<PostModel> {
     return this.postsService.delete({ id: Number(id) });
   }
