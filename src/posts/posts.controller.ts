@@ -56,7 +56,7 @@ export class PostsController {
   }
 
   @Patch(':id')
-  async updatePostTitleOrContent(
+  async updateTitleOrContent(
     @Param('id') id: string,
     @Body() { title, content }: UpdatePostDto,
   ): Promise<PostModel> {
@@ -72,7 +72,7 @@ export class PostsController {
   }
 
   @Delete(':id')
-  async deletePost(@Param('id') id: string): Promise<PostModel> {
+  async delete(@Param('id') id: string): Promise<PostModel> {
     return this.postsService.delete({ id: Number(id) });
   }
 }
