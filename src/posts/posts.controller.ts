@@ -1,19 +1,56 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
-import { CreatePostDto } from './dto/create-post.dto';
-import { Post as IPost } from './interfaces/post.interface';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { PostsService } from './posts.service';
+import { Post as PostModel } from '@prisma/client';
 
 @Controller('posts')
 export class PostsController {
   constructor(private postsService: PostsService) {}
 
   @Post()
-  create(@Body() createPostDto: CreatePostDto) {
-    this.postsService.create(createPostDto);
+  create(
+    @Body()
+    createPostDto: {
+      title: string;
+      content?: string;
+      authorEmail: string;
+    },
+  ): Promise<PostModel> {
+    const { title, content, authorEmail } = createPostDto;
+    return this.postsService.create({
+      title,
+      content,
+      author: {
+        connect: {
+          email: authorEmail,
+        },
+      },
+    });
   }
 
-  @Get()
-  async findAll(): Promise<IPost[]> {
-    return this.postsService.findAll();
+  @Get('all/:searchString')
+  async findAll(
+    @Param('searchString') searchString: string,
+  ): Promise<PostModel[]> {
+    return this.postsService.findAll({
+      where: {
+        OR: [
+          {
+            title: {
+              contains: searchString,
+            },
+          },
+          {
+            content: {
+              contains: searchString,
+            },
+          },
+        ],
+      },
+    });
+  }
+
+  @Delete(':id')
+  async deletePost(@Param('id') id: string): Promise<PostModel> {
+    return this.postsService.deletePost({ id: Number(id) });
   }
 }
